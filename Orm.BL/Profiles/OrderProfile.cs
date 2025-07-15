@@ -24,6 +24,7 @@ public static class OrderProfile
         {
             Id = entity.Id,
             OrderDate = entity.OrderDate,
+            // Consider null/empty check for OrderItems before summing, though usually there will be items.
             TotalOrderPrice = entity.OrderItems.Sum(oi => oi.TotalAmount),
             TotalOrderCount = entity.OrderItems.Sum(oi => oi.Quantity),
             TableId = entity.TableId, // Mapping TableId

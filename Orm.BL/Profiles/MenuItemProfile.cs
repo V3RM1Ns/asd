@@ -14,15 +14,17 @@ public class MenuItemProfile
             Name = menuItemCreateDto.Name,
         };
     }
-    
+
     public static MenuItemCreateDto MenuItemToMenuItemCreate(MenuItem menuItem)
     {
+        // This mapping is unusual; typically you map entity to ReturnDto or entity to UpdateDto.
+        // Mapping an entity back to a CreateDto might not be the intended use case.
+        // If this is for an "Update" scenario, consider a MenuItemUpdateDto.
         return new MenuItemCreateDto
         {
             Category = menuItem.Category,
             Price = menuItem.Price,
             Name = menuItem.Name,
-
         };
     }
 

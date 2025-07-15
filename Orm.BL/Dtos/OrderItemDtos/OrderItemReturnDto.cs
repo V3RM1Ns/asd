@@ -1,18 +1,11 @@
-// Orm.BL/Dtos/OrderDtos/OrderReturnDto.cs
-using Orm.BL.Dtos.OrderItemDtos;
-using System;
-using System.Collections.Generic;
+// Orm.BL/Dtos/OrderItemDtos/OrderItemReturnDto.cs
+namespace Orm.BL.Dtos.OrderItemDtos;
 
-namespace Orm.BL.Dtos.OrderDtos;
-
-public class OrderItemReturnDto
+public class OrderItemReturnDto // Correct class name for an individual order item
 {
-    public int Id { get; set; }
-    public DateTime OrderDate { get; set; }
-    public decimal TotalOrderPrice { get; set; }
-    public int TotalOrderCount { get; set; }
-    public int? TableId { get; set; } // Yeni eklenen alan
-    public string? TableNo { get; set; } // Yeni eklenen alan
-
-    public List<OrderItemReturnDto> OrderItems { get; set; } = new List<OrderItemReturnDto>();
+    public int Id { get; set; } // The ID of the OrderItem itself
+    public int MenuItemId { get; set; }
+    public string? MenuItemName { get; set; }
+    public int Quantity { get; set; }
+    public decimal TotalAmount { get; set; } // Quantity * MenuItem.Price
 }
